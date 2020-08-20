@@ -1,4 +1,11 @@
-REQUIREMENT: FLASK
+REQUIREMENT: 
+
+- Flask
+
+- Python
+
+
+Chạy lệnh pip install flask để cài đặt thư viện Flask
 
 
 
