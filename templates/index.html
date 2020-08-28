@@ -6,6 +6,29 @@
     <title>Xử lý chuỗi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCjMNeIfhoeXNKCcCVdVlYr3VAqy79uYwc"></script>
+    <script>
+    var searchInput = 'input';
+
+        $(document).ready(function () {
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                types: ['geocode'],
+                componentRestrictions: {
+                    country: "VN"
+            }
+            });
+            
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var near_place = autocomplete.getPlace();
+                document.getElementById('loc_lat').value = near_place.geometry.location.lat();
+                document.getElementById('loc_long').value = near_place.geometry.location.lng();
+            });
+        });
+        </script>
+
 </head>
 
 <body>
@@ -13,23 +36,24 @@
         <h1>XỬ LÝ CHUỖI</h1>
         <div class="input">
             <form action="" method="POST" id ="form">
-                <textarea name="input" id="input">The cat was playing in the garden.</textarea>
-                <input type="submit" value="Show info">
+                <textarea name="input" class="form-control" id="input" placeholder="Nhập địa chỉ..."></textarea>
+                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
 
         <div class="output">
-            <div class="result"><span>SỐ TỪ</span>
-                <p>{{ wordCount }}</p>
+            <div class="result"><span>ĐỊA CHỈ</span>
+                <p>{{ diachi }}</p>
             </div>
-            <div class="result"><span>SỐ KÝ TỰ</span>
-                <p>{{ strLen }}</p>
+            <div class="result"><span>QUẬN</span>
+                <p>{{ quan }}</p>
             </div>
-            <div class="result"><span>CHUỖI CHUẨN HÓA</span>
-                <p>{{ data }}</p>
+            <div class="result"><span>TỈNH/THÀNH PHỐ</span>
+                <p>{{ tinhthanh }}</p>
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>

@@ -8,10 +8,11 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST': 
-        data=standartdized(request.form['input'])
-        strLen=getLen(data)
-        wordCount = count(data)
-        return render_template('index.html',data=data,strLen=strLen,wordCount=wordCount)
+        string = request.form['input']
+        diachi = Diachi(string)
+        quan= Quan(string)
+        tinhthanh = Tinhthanh(string)
+        return render_template('index.html',quan=quan,diachi=diachi,tinhthanh=tinhthanh)
     return render_template('index.html')
  
 if __name__ == '__main__':

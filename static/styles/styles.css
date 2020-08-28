@@ -16,14 +16,28 @@ h1{
 #input {
     border-radius: 0;
     color: #A7A7A8;
-    width: 80%;
     font-family: 'Roboto', sans-serif;
+    width: 80%;
+    height: 10px;
     font-size: 14px;
-    height: 320px;
     padding: 20px;
+    margin-top: 20%;
     outline: none;
     resize: none;
+    overflow: hidden;
+    border:none;
 }
+
+.container .input button{
+  float: right;
+  padding: 15px 20px;
+  margin-top: 20%;
+  margin-right: 38px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  }
 
 .output {
     float: right;
@@ -57,14 +71,3 @@ h1{
     padding: 5px 0;
 }
 
-input[type=submit]{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 11px;
-    margin: 4px 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }

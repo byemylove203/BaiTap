@@ -1,11 +1,23 @@
-def getLen(string):
-    return len(string)
+def Diachi(string):
+    try:
+        x= string.split(",")
+        return x[0] + x[1]
+    except:
+        print("")
+    return "Unknown"
 
-def standartdized(string):
-    s=string.lower()        
-    s = ' '.join(s.split()) # Loai bo khoang trang thua
-    return s 
+def Quan(string):
+    try:
+        x= string.split(",")
+        return x[2]
+    except:
+        print("")
+    return "Unknown"
 
-def count(string):
-    c = len(string.split()) 
-    return c
+def Tinhthanh(string):
+    try:
+        x= string.split(",")
+        return x[3]
+    except:
+        print("")
+    return "Unknown"
